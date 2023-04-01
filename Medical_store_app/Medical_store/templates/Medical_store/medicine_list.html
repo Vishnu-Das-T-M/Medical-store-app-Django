@@ -1,0 +1,19 @@
+<h1>Medicines List</h1>
+<ul>
+    <!-- Iterate over object_list -->
+    {% for object in object_list %}
+    <!-- Display Objects -->
+    <li><strong>Medicine:</strong>{{ object.name }}</li>
+    <li><strong>Company:</strong>{{ object.company }}</li>
+    <li><strong>Quantity:</strong>{{ object.quantity }}</li>
+    <li><strong>Price:</strong>{{ object.price}}</li>
+    <li><strong>Manufactured Date:</strong>{{ object.mfg_date }}</li>
+    <li><strong>Expiry Date:</strong>{{ object.exp_date }}</li>
+    <a href="{% url 'medicine_update' pk=object.id %}"><button>Edit</button></a>
+    <a href="{% url 'medicine_delete' pk=object.id %}"><button>Delete</button></a>
+    <hr/>
+    <!-- If object_list is empty  -->
+    {% empty %}
+    <li>No objects yet.</li>
+    {% endfor %}
+</ul>

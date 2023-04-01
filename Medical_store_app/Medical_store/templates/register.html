@@ -1,0 +1,21 @@
+{% extends "base_page.html" %}
+
+{% block content %} 
+
+<!--Register--> 
+<div class="container py-5">
+	<h1>Register</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{ register_form }}                    
+		<button class="btn btn-primary" type="submit">Register</button>
+	</form>
+	<p class="text-center">If you already have an account, <a href="{% url 'login'%}?next={{request.path}}">login</a> instead.</p>
+</div>
+<div>
+	{% for message in messages %}
+	<h3>{{message}}</h3>
+	{%endfor%}
+</div>
+
+{% endblock %}
